@@ -1,0 +1,90 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span> BOOKINGS </span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body ng-app="myApp" ng-controller="myAppController" ng-cloak>
+
+  <div class="container">
+
+
+    <hr>
+    <div class="row">
+      <div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="orderIdFilter">Filtrar</label>
+            <input id="orderIdFilter" type="text" class="form-control order-search-box" placeholder="Ingrese id, precio"
+              ng-change="gridActions.filter()" ng-model="bookingId" filter-by="bookingId" filter-type="text">
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <div grid-data id='test' grid-options="gridOptions" grid-actions="gridActions">
+
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th sortable="code" class="sortable">
+                  Booking id
+                </th>
+                <th sortable="placed" class="sortable">
+                  Nombre
+                </th>
+                <th class="st-sort-disable th-dropdown">
+                  Fecha
+                </th>
+                <th sortable='total.value' class="sortable">
+                  Direcciòn
+                </th>
+                <th sortable='total.value' class="sortable">
+                  Precio
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr grid-item *ngFor="let item of bookings">
+                <td width="10%" ng-bind="item.bookingId">{{ item.bookingId }}</td>
+                <td width="20%" ng-bind="item.tutenUserClient.firstName ">{{ item.tutenUserClient.firstName}} {{ item.tutenUserClient.lastName}}</td>
+                <td width="20%" ng-bind="item.placed | date:'MM/dd/yyyy'">{{ item.bookingTime | date }}</td>
+                <td width="35%" ng-bind="item.statusDisplay">{{ item.locationId.streetAddress }}</td>
+                <td width="15%" ng-bind="item.total.formattedValue">{{ item.bookingPrice | currency }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<script src="https://angular-data-grid.github.io/dist/pagination.js"></script>
+<script src="https://angular-data-grid.github.io/dist/JSONToCSVConvertor.js"></script>
+<script src="https://angular-data-grid.github.io/dist/dataGrid.js"></script>
+
+
+</html>

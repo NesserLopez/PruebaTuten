@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/icon?family=Roboto);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+  font-family: Roboto; // #1
+}
+
+.table > thead > tr > th {
+  vertical-align: middle;
+}
+
+.margin-bottom-basic {
+  margin-bottom: 15px;
+}
+
+.pagination {
+  margin: 0;
+}
+
+.items-per-page {
+  margin-left: 15px;
+}
+
+.sortable:after {
+  font: 14px/1 FontAwesome;
+  content: "\f0dc";
+}
+
+.sortable.sort-ascent:after {
+  content: '\f0de';
+  vertical-align: bottom;
+}
+
+.sortable.sort-descent:after {
+  content: "\f0dd";
+  vertical-align: top;
+}
